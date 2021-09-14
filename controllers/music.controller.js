@@ -46,10 +46,10 @@ const MusicController = {
     }
   },
   delete: async (req, res, next) => {
-    const musicId = req.params.id;
+    const musicId = req.params.guid;
     try {
       await MusicService.delete(musicId);
-      res.status(200).send({ message: "music deleted successfully" });
+      res.render('table', {musics : await MusicService.findAll()});
     } catch (error) {
       res.status(404).send({ message: `music with id - ${musicId} not found` });
     }

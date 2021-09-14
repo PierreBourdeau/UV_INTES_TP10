@@ -3,7 +3,6 @@ const app = express();
 const indexRouter = require("./routers/index");
 //const { corsWithOptions } = require("./config/cors");
 const db = require("./models");
-//var bodyParser = require('body-parser');
 app.use(express.urlencoded({ extended: false }));
 
 (async () => {

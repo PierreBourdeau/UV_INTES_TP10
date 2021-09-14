@@ -5,8 +5,6 @@ const { validate } = require("express-validation");
 const MusicValidator = require("../validators/music.validators");
 const MusicService = require("../services/music.service");
 
-const API_MUSICS_PARAM = `/:id`;
-
 // Begin Router
 
 musicRouter
@@ -21,6 +19,8 @@ musicRouter
   .post(validate(MusicValidator.validateCreate), MusicController.create); // POST create a song
 
 musicRouter.route("/songs/:guid").get(MusicController.findById); // GET find a specific song by id
+
+musicRouter.route("/songs/:guid/delete").get(MusicController.delete); // GET delete the song with the specific guid
 
 musicRouter.route("/songs/:guid").put(validate(MusicValidator.validateUpdate), MusicController.update); // PUT modify specific song (find by id)
 

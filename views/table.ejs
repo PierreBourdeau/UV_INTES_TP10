@@ -17,7 +17,10 @@
         <td><%= musics[i].artist%></td>
         <td>@<%= musics[i].length%></td>
         <td><%= musics[i].genre%></td>
-        <td><button id="edit-btn<%= i %>" onclick="editSong('<%= musics[i].id%>')" type="button" class="btn btn-primary" data-toggle="modal" data-target="#editSongModal"><i class="fas fa-edit"></i></button></td>
+        <td>
+          <button id="edit-btn<%= i %>" onclick="editSong('<%= musics[i].id%>')" type="button" class="btn btn-primary" data-toggle="modal" data-target="#editSongModal"><i class="fas fa-edit"></i></button>
+          <button id="delete-btn<%= i %>" onclick="deleteSong('<%= musics[i].id%>')" type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+        </td>
       </tr>
       <% } %>
     </tbody>

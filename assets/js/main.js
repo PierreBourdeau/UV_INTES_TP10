@@ -49,3 +49,14 @@ $('#artistlist-btn').on('click', function() {
 function editSong(id) {
     $('#id_input').val(id);
 }
+
+function deleteSong(id) {
+    $.ajax({
+       url: '/musics/songs/'+id+'/delete',
+       type: 'get',
+        success: function(resp) {
+            $('#song-table').html(resp);
+            $('input').val('');
+        }
+    });
+}
